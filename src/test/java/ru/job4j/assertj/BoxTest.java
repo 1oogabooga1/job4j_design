@@ -20,7 +20,7 @@ class BoxTest {
 
     @Test
     void whenVerticesEqualsFour() {
-        Box box = new Box(4, 4 );
+        Box box = new Box(4, 4);
         assertThat(box.getNumberOfVertices()).isEqualTo(4);
     }
 
