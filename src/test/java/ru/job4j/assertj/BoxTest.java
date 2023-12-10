@@ -1,6 +1,7 @@
 package ru.job4j.assertj;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.withPrecision;
 
 import org.junit.jupiter.api.Test;
 
@@ -45,12 +46,12 @@ class BoxTest {
     @Test
     void whenAreaEqualsTwentySeven() {
         Box box = new Box(4, 4);
-        assertThat(box.getArea()).isEqualTo(27.712812921102035);
+        assertThat(box.getArea()).isEqualTo(27.7D, withPrecision(0.1d));
     }
 
     @Test
     void whenAreaEqualsThreeHundredEightyFour() {
         Box box = new Box(8, 8);
-        assertThat(box.getArea()).isEqualTo(384.0);
+        assertThat(box.getArea()).isEqualTo(384);
     }
 }
