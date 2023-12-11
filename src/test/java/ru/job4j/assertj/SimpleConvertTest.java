@@ -50,7 +50,7 @@ class SimpleConvertTest {
                 5, "Five");
         assertThat(map).hasSize(5)
                 .containsKeys(4, 5, 3)
-                .containsValues("Five", "Four", "Three")
+                .containsValues("Five", "Four", "Third")
                 .containsEntry(1, "First")
                 .doesNotContainKey(0)
                 .doesNotContainValue("Zero");
