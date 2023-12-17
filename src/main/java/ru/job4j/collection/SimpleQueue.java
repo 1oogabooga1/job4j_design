@@ -17,7 +17,7 @@ public class SimpleQueue<T> {
     }
 
     public void push(T value) {
-       while(!out.isEmpty()) {
+        while (!out.isEmpty()) {
            in.push(out.pop());
        }
         in.push(value);
