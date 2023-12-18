@@ -23,6 +23,7 @@ public class ForwardLinked<T> implements Iterable<T> {
     }
 
     public T get(int index) {
+        modCount++;
         Objects.checkIndex(index, size);
         Node<T> target = head;
         for (int i = 0; i < index; i++) {
@@ -40,17 +41,13 @@ public class ForwardLinked<T> implements Iterable<T> {
         head.setItem(null);
         head.setNext(null);
         head = nextNode;
+        modCount++;
         return curr;
     }
 
     public void addFirst(T value) {
-        Node<T> newNode = new Node<>(value, null);
-        newNode.next = head;
-        head = newNode;
-    }
-
-    public boolean isEmpty() {
-        return head == null;
+        head = new Node<>(value, head);
+        modCount++;
     }
 
     @Override
