@@ -1,6 +1,8 @@
 package ru.job4j.set;
 
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class SimpleArraySetTest {
@@ -36,5 +38,16 @@ class SimpleArraySetTest {
         assertThat(set.add(null)).isTrue();
         assertThat(set.contains(null)).isTrue();
         assertThat(set.add(null)).isFalse();
+    }
+
+    @Test
+    void whenAddNonNullElements() {
+        SimpleSet<Integer> set = new SimpleArraySet<>();
+        assertThat(set.add(50)).isTrue();
+        assertThat(set.contains(50)).isTrue();
+        assertThat(set.contains(5)).isFalse();
+        assertThat(set.add(123)).isTrue();
+        assertThat(set.contains(12)).isFalse();
+        assertThat(set.contains(123)).isTrue();
     }
 }
