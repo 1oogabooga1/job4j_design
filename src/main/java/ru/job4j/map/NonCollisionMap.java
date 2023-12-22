@@ -16,18 +16,15 @@ public class NonCollisionMap<K, V> implements SimpleMap<K, V> {
 
     @Override
     public boolean put(K key, V value) {
-        int index = indexFor(hash(Objects.hashCode(key)));
+        int index = getIndex(key);
         boolean check = table[index] == null;
         if (check) {
-            table[index] = new MapEntry(key, value);
+            table[index] = new MapEntry<>(key, value);
             count++;
             modCount++;
         }
         if ((float) count / capacity >= LOAD_FACTOR) {
             expand();
-            index = indexFor(hash(Objects.hashCode(key)));
-            count--;
-            modCount--;
         }
         return check;
     }
@@ -54,56 +51,38 @@ public class NonCollisionMap<K, V> implements SimpleMap<K, V> {
 
 
     private int getIndex(K key) {
-        int hashCode = Objects.hashCode(key);
-        int hash = hash(hashCode);
-        int index = indexFor(hash);
-        return index;
+        return indexFor(hash(Objects.hashCode(key)));
     }
 
 
     @Override
     public V get(K key) {
-        int index = indexFor(hash(Objects.hashCode(key)));
-        if (key == null && table[index] != null) {
-           if (table[index].value.equals("0")) {
-               return null;
-           } else {
-               return table[index].value;
-           }
-       }
-        if (table[index] != null && table[index].key != null) {
-            if (table[index].key.hashCode() == key.hashCode()
-                    && Objects.equals(table[index].key, key)) {
-                return table[index].value;
-            }
+        V result = null;
+        int index = getIndex(key);
+        if (table[index] != null && Objects.hashCode(table[index].key) == Objects.hashCode(key)
+                && Objects.equals(table[index].key, key)) {
+            result = table[index].value;
         }
-        return null;
+        return result;
     }
 
     @Override
     public boolean remove(K key) {
         int index = indexFor(hash(Objects.hashCode(key)));
-        if (key == null && table[index] != null) {
-           table[index] = null;
-           modCount++;
-           count--;
-           return true;
-        }
-        if (table[index] != null && table[index].key != null) {
-            if (table[index].key.hashCode() == key.hashCode()
-            && Objects.equals(table[index].key, key)) {
+        boolean check = false;
+        if (table[index] != null && Objects.hashCode(table[index].key) == Objects.hashCode(key)
+                && Objects.equals(table[index].key, key)) {
                 table[index] = null;
                 modCount++;
                 count--;
-                return true;
-        }
+                check = true;
     }
-        return false;
+        return check;
     }
 
     @Override
     public Iterator<K> iterator() {
-        return new Iterator<K>() {
+        return new Iterator<>() {
             private int index;
 
             private int expectedModCount = modCount;
@@ -135,22 +114,6 @@ public class NonCollisionMap<K, V> implements SimpleMap<K, V> {
 
         public MapEntry(K key, V value) {
             this.key = key;
-            this.value = value;
-        }
-
-        public K getKey() {
-            return key;
-        }
-
-        public void setKey(K key) {
-            this.key = key;
-        }
-
-        public V getValue() {
-            return value;
-        }
-
-        public void setValue(V value) {
             this.value = value;
         }
     }
