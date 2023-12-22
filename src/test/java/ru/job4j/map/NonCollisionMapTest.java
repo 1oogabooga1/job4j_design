@@ -150,4 +150,49 @@ class NonCollisionMapTest {
         assertThat(map.put(0, "0")).isTrue();
         assertThat(map.get(null)).isNull();
     }
+
+    @Test
+    void whenPutIsTrue() {
+        SimpleMap<Integer, String> map = new NonCollisionMap<>();
+        assertThat(map.put(321, "432")).isTrue();
+        assertThat(map.put(1234, "634")).isTrue();
+    }
+
+    @Test
+    void whenGetIs432() {
+        SimpleMap<Integer, String> map = new NonCollisionMap<>();
+        assertThat(map.put(321, "432")).isTrue();
+        assertThat(map.put(1234, "634")).isTrue();
+        assertThat(map.get(321)).isEqualTo("432");
+    }
+
+    @Test
+    void whenGetIs634() {
+        SimpleMap<Integer, String> map = new NonCollisionMap<>();
+        assertThat(map.put(321, "432")).isTrue();
+        assertThat(map.put(1234, "634")).isTrue();
+        assertThat(map.get(1234)).isEqualTo("634");
+    }
+
+    @Test
+    void whenRemoveIsTrue() {
+        SimpleMap<Integer, String> map = new NonCollisionMap<>();
+        assertThat(map.put(321, "432")).isTrue();
+        assertThat(map.put(1234, "634")).isTrue();
+        assertThat(map.get(321)).isEqualTo("432");
+        assertThat(map.remove(321)).isTrue();
+        assertThat(map.remove(1234)).isTrue();
+    }
+
+    @Test
+    void whenRemoveIsFalse() {
+        SimpleMap<Integer, String> map = new NonCollisionMap<>();
+        assertThat(map.put(321, "432")).isTrue();
+        assertThat(map.put(1234, "634")).isTrue();
+        assertThat(map.get(321)).isEqualTo("432");
+        assertThat(map.remove(321)).isTrue();
+        assertThat(map.remove(1234)).isTrue();
+        assertThat(map.remove(321)).isFalse();
+        assertThat(map.remove(1234)).isFalse();
+    }
 }
