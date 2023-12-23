@@ -16,9 +16,10 @@ public class NonCollisionMap<K, V> implements SimpleMap<K, V> {
 
     @Override
     public boolean put(K key, V value) {
-        boolean check = table[getIndex(key)] == null;
+        int index = getIndex(key);
+        boolean check = table[index] == null;
         if (check) {
-            table[getIndex(key)] = new MapEntry<>(key, value);
+            table[index] = new MapEntry<>(key, value);
             count++;
             modCount++;
         }
@@ -75,8 +76,9 @@ public class NonCollisionMap<K, V> implements SimpleMap<K, V> {
     }
 
     private boolean match(K key) {
-        return table[getIndex(key)] != null && Objects.hashCode(table[getIndex(key)].key) == Objects.hashCode(key)
-                && Objects.equals(table[getIndex(key)].key, key);
+        int index = getIndex(key);
+        return table[index] != null && Objects.hashCode(table[index].key) == Objects.hashCode(key)
+                && Objects.equals(table[index].key, key);
     }
 
     @Override
