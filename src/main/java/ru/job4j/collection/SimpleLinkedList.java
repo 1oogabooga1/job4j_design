@@ -25,7 +25,7 @@ public class SimpleLinkedList<E> implements SimpleLinked<E> {
         }
         size++;
         modCount++;
-     }
+    }
 
     @Override
     public E get(int index) {
@@ -66,20 +66,16 @@ public class SimpleLinkedList<E> implements SimpleLinked<E> {
     private static class Node<E> {
         private E item;
         private Node<E> next;
-
         Node(E element, Node<E> next) {
             this.item = element;
             this.next = next;
         }
-
         public void setNext(Node<E> next) {
             this.next = next;
         }
-
         public Node<E> getNext() {
             return next;
         }
-
         public E getItem() {
             return item;
         }
