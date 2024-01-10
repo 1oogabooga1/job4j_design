@@ -15,15 +15,9 @@ public class LogFilter {
         List<String> rsl = new ArrayList<>();
         try (BufferedReader input = new BufferedReader(new FileReader(file))) {
             for (String line = input.readLine(); line != null; line = input.readLine()) {
-                String[] lines = line.split("1\"");
-                for (int i = 1; i < lines.length; i++) {
-                    String[] second = lines[i].split(" ");
-                    for (int j = 0; j < second.length; j++) {
-                        if (second[j].equals("404") && !second[j + 1].equals("-")) {
-                            rsl.add(line);
-                            break;
-                        }
-                    }
+                String[] lines = line.split(" ");
+                if (lines.length >= 2 && "404".equals(lines[lines.length - 2])) {
+                    rsl.add(line);
                 }
             }
         } catch (IOException e) {
