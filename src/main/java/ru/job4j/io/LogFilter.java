@@ -32,7 +32,7 @@ public class LogFilter {
                 new BufferedOutputStream(
                         new FileOutputStream(out)
                 ))) {
-            output.println(data);
+           data.forEach(output::println);
         } catch (Exception e) {
             e.printStackTrace();
         }
