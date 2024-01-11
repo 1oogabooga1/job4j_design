@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.StringJoiner;
 
+
 public class Config {
 
     private final String path;
@@ -21,8 +22,8 @@ public class Config {
             for (String line = input.readLine(); line != null; line = input.readLine()) {
                 String[] lines = line.split("=", 2);
                 if (lines.length < 2
-                        || lines[0].equals(" ")
-                        || lines[1].equals(" ")
+                        || " ".equals(lines[0])
+                        || " ".equals(lines[1])
                 ) {
                     throw new IllegalArgumentException();
                 } else if (!line.contains("#")) {
@@ -52,5 +53,4 @@ public class Config {
     public static void main(String[] args) {
         System.out.println(new Config("data/app.properties"));
     }
-
 }
