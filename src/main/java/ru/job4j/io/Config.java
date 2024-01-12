@@ -20,14 +20,16 @@ public class Config {
     public void load() {
         try (BufferedReader input = new BufferedReader(new FileReader(path))) {
             for (String line = input.readLine(); line != null; line = input.readLine()) {
-                String[] lines = line.split("=", 2);
-                if (lines.length < 2
-                        || " ".equals(lines[0])
-                        || " ".equals(lines[1])
-                ) {
-                    throw new IllegalArgumentException();
-                } else if (!line.contains("#")) {
-                    values.put(lines[0], lines[1]);
+                if (!line.isBlank() && !line.contains("#")) {
+                    String[] lines = line.split("=", 2);
+                    if (lines.length < 2
+                            || " ".equals(lines[0])
+                            || " ".equals(lines[1])
+                    ) {
+                        throw new IllegalArgumentException();
+                    } else {
+                        values.put(lines[0], lines[1]);
+                    }
                 }
             }
         } catch (IOException e) {

@@ -55,14 +55,6 @@ class ConfigTest {
     }
 
     @Test
-    void whenWithoutValueAndKeyThenThrowsIllegalArgumentException() {
-        String path = "data/without_value_and_key.properties";
-        Config con = new Config(path);
-        assertThrows(IllegalArgumentException.class,
-                con::load);
-    }
-
-    @Test
     void whenOnlyEquallyThenThrowsIllegalArgumentException() {
         String path = "data/pair_with_only_equally.properties";
         Config con = new Config(path);
