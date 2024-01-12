@@ -16,7 +16,7 @@ public class Analysis {
                     work = false;
                     output.println(lines[1]);
                 }
-                if (!work && (!"400".equals(lines[0]) && !"500".equals(lines[0]))){
+                if (!work && (!"400".equals(lines[0]) && !"500".equals(lines[0]))) {
                     work = true;
                     output.println(lines[1]);
                 }
