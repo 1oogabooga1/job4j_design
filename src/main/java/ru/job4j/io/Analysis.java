@@ -14,11 +14,11 @@ public class Analysis {
                 String[] lines = line.split(" ");
                 if (work && ("400".equals(lines[0]) || "500".equals(lines[0]))) {
                     work = false;
-                    output.println(lines[1]);
+                    output.println(lines[1] + ";");
                 }
                 if (!work && (!"400".equals(lines[0]) && !"500".equals(lines[0]))) {
                     work = true;
-                    output.println(lines[1]);
+                    output.println(lines[1] + ";");
                 }
             }
         } catch (IOException e) {

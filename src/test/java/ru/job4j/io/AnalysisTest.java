@@ -29,7 +29,7 @@ class AnalysisTest {
         try (BufferedReader input = new BufferedReader(new FileReader(target))) {
             input.lines().forEach(result::append);
         }
-        assertThat("10:57:01" + "11:02:02").hasToString(result.toString());
+        assertThat("10:57:01" + ";" + "11:02:02" + ";").hasToString(result.toString());
     }
 
     @Test
@@ -51,6 +51,6 @@ class AnalysisTest {
         try (BufferedReader input = new BufferedReader(new FileReader(target))) {
             input.lines().forEach(result::append);
         }
-        assertThat("10:57:01" + "10:59:01" + "11:01:02" + "11:02:02").hasToString(result.toString());
+        assertThat("10:57:01" + ";" + "10:59:01" + ";" + "11:01:02" + ";" + "11:02:02" + ";").hasToString(result.toString());
     }
 }
