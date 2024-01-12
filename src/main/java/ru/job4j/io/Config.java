@@ -22,10 +22,7 @@ public class Config {
             for (String line = input.readLine(); line != null; line = input.readLine()) {
                 if (!line.isBlank() && !line.contains("#")) {
                     String[] lines = line.split("=", 2);
-                    if (lines.length < 2
-                            || " ".equals(lines[0])
-                            || " ".equals(lines[1])
-                    ) {
+                    if (validate(lines)) {
                         throw new IllegalArgumentException();
                     } else {
                         values.put(lines[0], lines[1]);
@@ -35,6 +32,14 @@ public class Config {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public boolean validate(String[] lines) {
+        boolean check =  lines.length < 2 || " ".equals(lines[0]) || " ".equals(lines[1]);
+        if (check) {
+            throw new IllegalArgumentException();
+        }
+        return check;
     }
 
     public String value(String key) {
