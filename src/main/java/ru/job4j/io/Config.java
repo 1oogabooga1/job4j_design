@@ -23,8 +23,6 @@ public class Config {
                 if (!line.isBlank() && !line.contains("#")) {
                     String[] lines = line.split("=", 2);
                     if (validate(lines)) {
-                        throw new IllegalArgumentException();
-                    } else {
                         values.put(lines[0], lines[1]);
                     }
                 }
@@ -39,7 +37,7 @@ public class Config {
         if (check) {
             throw new IllegalArgumentException();
         }
-        return check;
+        return !check;
     }
 
     public String value(String key) {
