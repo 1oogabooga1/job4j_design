@@ -25,7 +25,7 @@ public class SearchFiles implements FileVisitor<Path> {
 
     @Override
     public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
-        return FileVisitResult.CONTINUE ;
+        return FileVisitResult.CONTINUE;
     }
 
     @Override
