@@ -22,8 +22,14 @@ public class Search {
     }
 
     public static boolean validate(String[] args) {
-        if (args.length == 0 || args[1].isBlank()) {
-            throw new IllegalArgumentException();
+        if (args.length != 2) {
+            throw new IllegalArgumentException("Amount of the args doesnt equal 2");
+        }
+        if (args[1].isBlank()) {
+            throw new IllegalArgumentException("The second argument is blank");
+        }
+        if (args[0].isBlank()) {
+            throw new IllegalArgumentException("The first argument is blank");
         }
         return true;
     }
