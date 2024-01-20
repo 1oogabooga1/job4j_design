@@ -1,5 +1,6 @@
 package ru.job4j.io;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -22,8 +23,19 @@ public class Search {
     }
 
     public static boolean validate(String[] args) {
-        if (args.length == 0 || args[1].isBlank()) {
-            throw new IllegalArgumentException();
+        if (args.length != 2) {
+            throw new IllegalArgumentException("Amount of the args doesnt equal 2");
+        }
+        File file = new File(args[0]);
+        if (!file.exists()) {
+            throw new IllegalArgumentException(String.format("the %s doesnt exist", file.getAbsoluteFile()));
+        }
+        if (!file.isDirectory()) {
+            throw new IllegalArgumentException(String.format("The %s isn't directory", file.getAbsoluteFile()));
+        }
+        File second = new File(args[1]);
+        if (second.length() < 2) {
+            throw new IllegalArgumentException(String.format("This ending - %s doesn't exist", args[1]));
         }
         return true;
     }
