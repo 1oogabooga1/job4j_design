@@ -17,28 +17,28 @@ public class ArgsName {
     private void parse(String[] args) {
         for (String arg : args) {
                 String[] keyValue = arg.split("=", 2);
-                if (!arg.startsWith("-")) {
-                    throw new IllegalArgumentException(String.format("Error: This argument '%s' does not start with a '-' character", arg));
-                }
-                if (!arg.contains("=")) {
-                    throw new IllegalArgumentException(String.format("Error: This argument '%s' does not contain an equal sign", arg));
-                }
-                if (keyValue[0].equals("-")) {
-                    throw new IllegalArgumentException(String.format("Error: This argument '%s' does not contain a key", arg));
-                }
-                if (keyValue[1].isBlank()) {
-                    throw new IllegalArgumentException(String.format("Error: This argument '%s' does not contain a value", arg));
-                }
-                if (validate(keyValue)) {
+                if (validate(arg, keyValue)) {
                     values.put(keyValue[0].substring(1), keyValue[1]);
                 }
         }
     }
 
-    public boolean validate(String[] lines) {
-        boolean check =  lines.length < 2 || " ".equals(lines[0]) || " ".equals(lines[1]);
+    public boolean validate(String arg, String[] keyValue) {
+        boolean check =  arg.length() < 2 || arg.isBlank();
         if (check) {
             throw new IllegalArgumentException();
+        }
+        if (!arg.startsWith("-")) {
+            throw new IllegalArgumentException(String.format("Error: This argument '%s' does not start with a '-' character", arg));
+        }
+        if (!arg.contains("=")) {
+            throw new IllegalArgumentException(String.format("Error: This argument '%s' does not contain an equal sign", arg));
+        }
+        if ("-".equals(keyValue[0])) {
+            throw new IllegalArgumentException(String.format("Error: This argument '%s' does not contain a key", arg));
+        }
+        if (keyValue[1].isBlank()) {
+            throw new IllegalArgumentException(String.format("Error: This argument '%s' does not contain a value", arg));
         }
         return !check;
     }
