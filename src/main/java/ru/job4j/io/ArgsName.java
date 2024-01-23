@@ -23,7 +23,7 @@ public class ArgsName {
         }
     }
 
-    public boolean validate(String arg, String[] keyValue) {
+    private boolean validate(String arg, String[] keyValue) {
         boolean check =  arg.length() < 2 || arg.isBlank();
         if (check) {
             throw new IllegalArgumentException();
