@@ -4,7 +4,6 @@ import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
@@ -37,8 +36,24 @@ public class Zip {
         }
     }
 
+    private static boolean validate(String[] args) {
+        return true;
+    }
+
     public static void main(String[] args) {
         Zip zip = new Zip();
+        String sourceDirectory = ArgsName.of(args).get("d");
+        String targetZipFile = ArgsName.of(args).get("o");
+        Path sourcePath = Paths.get(sourceDirectory);
+        List<Path> sourceFiles = new ArrayList<>();
+        File sourceDir = new File(sourceDirectory);
+        File[] files = sourceDir.listFiles();
+        if (files != null) {
+            for (File file : files) {
+                sourceFiles.add(file.toPath());
+            }
+        }
+        zip.packFiles(sourceFiles, new File(targetZipFile));
         zip.packSingleFile(
                 new File("./pom.xml"),
                 new File("./pom.zip")
