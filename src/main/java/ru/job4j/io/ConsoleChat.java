@@ -3,7 +3,7 @@ package ru.job4j.io;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+import java.util.Random;
 
 public class ConsoleChat {
     private static final String OUT = "закончить";
@@ -18,24 +18,46 @@ public class ConsoleChat {
     }
 
     public void run() {
-        Scanner input = new Scanner(System.in);
-        String userMsg = input.nextLine();
         boolean run = true;
-        while (run) {
-            if ("стоп".equals(userMsg)) {
-                System.out.println(OUT);
-                run = false;
+        boolean stop = false;
+        List<String> log = new ArrayList<>();
+        Random ran = new Random();
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+            while (run) {
+                String userInput = reader.readLine();
+                if ("стоп".equals(userInput)) {
+                    System.out.println(STOP);
+                    log.add(userInput);
+                    stop = true;
+                }
+                if (!"стоп".equals(userInput) && !"закончить".equals(userInput) && !stop) {
+                    int random = ran.nextInt(readPhrases().size() - 1);
+                    System.out.println(readPhrases().get(random));
+                    log.add(userInput);
+                }
+                if ("закончить".equals(userInput)) {
+                    System.out.println(OUT);
+                    log.add(userInput);
+                    run = false;
+                }
+                if ("продолжить".equals(userInput)) {
+                    System.out.println(CONTINUE);
+                    log.add(userInput);
+                    stop = false;
+                }
             }
-           userMsg = input.nextLine();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-        saveLog(readPhrases());
+        saveLog(log);
     }
 
     private List<String> readPhrases() {
         ArrayList<String> phrases = new ArrayList<>();
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            String phrase = reader.readLine();
-            phrases.add(phrase);
+        try (BufferedReader reader = new BufferedReader(new FileReader(botAnswers))) {
+            for (String line = reader.readLine(); line != null; line = reader.readLine()) {
+                phrases.add(reader.readLine());
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -45,7 +67,7 @@ public class ConsoleChat {
     private void saveLog(List<String> log) {
        try (BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream(path, true))) {
            for (String phrase : log) {
-               output.write(phrase.getBytes());
+               output.write((phrase + System.lineSeparator()).getBytes());
            }
        } catch (IOException e) {
            throw new RuntimeException(e);
@@ -53,7 +75,7 @@ public class ConsoleChat {
     }
 
     public static void main(String[] args) {
-        ConsoleChat consoleChat = new ConsoleChat("phrases.txt", "");
+        ConsoleChat consoleChat = new ConsoleChat("data/phrases.txt", "data/botAnswers.txt");
         consoleChat.run();
     }
 }
