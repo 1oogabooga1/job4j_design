@@ -34,8 +34,8 @@ public class Search {
             throw new IllegalArgumentException(String.format("The %s isn't directory", file.getAbsoluteFile()));
         }
         String second = args[1];
-        if (second.length() < 2 || !second.startsWith(".")) {
-            throw new IllegalArgumentException("Incorrect file type");
+        if (second.length() < 2 && second.startsWith(".")) {
+            throw new IllegalArgumentException(String.format("This ending - %s doesn't exist", args[1]));
         }
         return true;
     }
