@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 public class EchoServer {
 
-    private static final Logger LOG = LoggerFactory.getLogger(UsageLog4j.class.getName());
+    private static final Logger ECHOSERVER = LoggerFactory.getLogger(UsageLog4j.class.getName());
 
     public static void main(String[] args) {
         try (ServerSocket server = new ServerSocket(9000)) {
@@ -30,7 +30,7 @@ public class EchoServer {
                 }
             }
         } catch (Exception e) {
-            LOG.error("", e);
+            ECHOSERVER.error("", e);
         }
     }
 }
