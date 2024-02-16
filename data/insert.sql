@@ -1,24 +1,23 @@
+insert into categories(name) values ('important');
+insert into categories(name) values ('not important');
+insert into categories(name) values ('urgent');
 
-insert into items(name) values ('number one');
-insert into items(name) values ('number two');
+insert into users(name, roles_id) values ('Dmitrii', 1);
+insert into users(name, roles_id) values ('Igor', 2);
+insert into users(name, roles_id) values ('Slava', 3);
 
-insert into users(name, items_id) values ('Dmitrii', 1);
-insert into users(name, items_id) values ('Stas', 2);
+insert into items(name, users_id, categories_id, states_id) values ('First item', 1, 1, 1);
+insert into items(name, users_id, categories_id, states_id) values ('Second item', 2, 2, 2);
+insert into items(name, users_id, categories_id, states_id) values ('Third item', 3, 3, 3);
 
-insert into roles(name, users_id) values ('Student', 1);
-insert into roles(name, users_id) values ('Pupil', 2);
+insert into comments(name, items_id) values ('This item is incorrect', 1);
+insert into comments(name, items_id) values ('This item is correct', 2);
+insert into comments(name, items_id) values ('This item is fabolous', 1);
 
-insert into rules(name, roles_id) values ('must be at college', 1);
-insert into rules(name, roles_id) values ('must be at school', 2);
+insert into attachs(name, items_id) values ('some.png', 1);
+insert into attachs(name, items_id) values ('some.txt', 2);
+insert into attachs(name, items_id) values ('some.sql', 3);
 
-insert into comments(name, items_id) values ('Very good item', 1);
-insert into comments(name, items_id) values ('Bad item', 2);
-
-insert into attachs(name, items_id) values ('picture.png', 1);
-insert into attachs(name, items_id) values ('file.txt', 2);
-
-insert into states(name, items_id) values ('done', 1);
-insert into states(name, items_id) values ('in progress', 2);
-
-insert into categories(name, items_id) values ('important', 1);
-insert into categories(name, items_id) values ('not important', 2);
+insert into roles_rules(roles_id, rules_id) values (1, 1);
+insert into roles_rules(roles_id, rules_id) values (2, 2);
+insert into roles_rules(roles_id, rules_id) values (3, 3);
