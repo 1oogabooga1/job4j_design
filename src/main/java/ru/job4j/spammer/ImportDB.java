@@ -27,9 +27,9 @@ public class ImportDB {
                     String[] lines = line.split(";", 2);
                     if (lines.length < 2 || " ".equals(lines[0]) || " ".equals(lines[1])) {
                         throw new IllegalArgumentException();
-                    } else {
-                        users.add(new User(lines[0], lines[1]));
                     }
+                    users.add(new User(lines[0], lines[1]));
+
                 }
             }
         } catch (IOException e) {
