@@ -28,8 +28,9 @@ public class Groceries implements SearchShop<String> {
 
     @Override
     public void showAllProducts() {
+        Print print = new Print();
         for (Product product : products) {
-            System.out.println(product);
+            print.out(product.getName());
         }
     }
 }
