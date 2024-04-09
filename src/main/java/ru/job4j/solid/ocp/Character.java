@@ -13,7 +13,7 @@ public class Character {
     Weapon weapon;
     String name;
 
-    public Character (Weapon weapon, String name, Date date) {
+    public Character(Weapon weapon, String name, Date date) {
         this.name = name;
         this.weapon = weapon;
         this.date = date;

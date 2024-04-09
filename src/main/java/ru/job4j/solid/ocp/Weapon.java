@@ -9,7 +9,7 @@ public class Weapon {
 
     private List<Weapon> weapons;
 
-    public Weapon (String type, int damage, int range) {
+    public Weapon(String type, int damage, int range) {
         this.type = type;
         this.range = range;
         this.damage = damage;

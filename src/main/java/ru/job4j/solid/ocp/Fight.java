@@ -9,4 +9,5 @@ public class Fight {
         Character character = new Character(sword, "Dmitrii", Date.valueOf("08.04.2024"));
         character.attack();
     }
+
 }
