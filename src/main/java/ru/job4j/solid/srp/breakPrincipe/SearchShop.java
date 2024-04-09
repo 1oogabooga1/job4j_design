@@ -1,4 +1,4 @@
-package ru.job4j.solid.srp;
+package ru.job4j.solid.srp.breakPrincipe;
 
 public interface SearchShop<K> {
     Product search(K name);
