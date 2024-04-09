@@ -1,4 +1,4 @@
-package ru.job4j.solid.srp.breakPrincipe;
+package ru.job4j.solid.srp.breakprincipe;
 
 import java.util.List;
 
