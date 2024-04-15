@@ -66,8 +66,12 @@ public class Food {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Food food)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Food food)) {
+            return false;
+        }
         return Double.compare(getPrice(), food.getPrice()) == 0 && getDiscount() == food.getDiscount() && Objects.equals(getName(), food.getName()) && Objects.equals(getExpiryDate(), food.getExpiryDate()) && Objects.equals(getCreateDate(), food.getCreateDate());
     }
 
