@@ -5,5 +5,4 @@ public interface Parking {
     boolean put(Car car);
 
     Car get(Car car);
-
 }
