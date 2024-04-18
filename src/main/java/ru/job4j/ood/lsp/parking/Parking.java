@@ -4,6 +4,10 @@ public interface Parking {
 
     boolean put(Car car);
 
-    Car get(Car car);
+    Car get(String name);
+
+    int freeSpaceForLightCars();
+
+    int freeSpaceForHeavyCars();
 }
 

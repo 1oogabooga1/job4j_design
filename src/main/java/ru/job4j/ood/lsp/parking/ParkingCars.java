@@ -21,8 +21,17 @@ public class ParkingCars implements Parking {
     }
 
     @Override
-    public Car get(Car car) {
+    public Car get(String name) {
         return null;
     }
 
+    @Override
+    public int freeSpaceForLightCars() {
+        return 0;
+    }
+
+    @Override
+    public int freeSpaceForHeavyCars() {
+        return 0;
+    }
 }
