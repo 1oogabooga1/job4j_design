@@ -13,4 +13,20 @@ class WareHouseTest {
         assertThat(wareHouse.get("Milk")).isEqualTo(food);
     }
 
+    @Test
+    void whenGetNonExistentItem() {
+        Store wareHouse = new WareHouse();
+        assertThat(wareHouse.get("Banana")).isNull();
+    }
+
+    @Test
+    void testPutMultipleAndGetCorrectly() {
+        Food food1 = new Food("Apple");
+        Food food2 = new Food("Orange");
+        Store wareHouse = new WareHouse();
+        wareHouse.put(food1);
+        wareHouse.put(food2);
+        assertThat(wareHouse.get("Apple")).isEqualTo(food1);
+        assertThat(wareHouse.get("Orange")).isEqualTo(food2);
+    }
 }

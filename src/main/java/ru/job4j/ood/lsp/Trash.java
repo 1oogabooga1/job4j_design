@@ -13,7 +13,7 @@ public class Trash extends AbstractStore {
 
     @Override
     public Food get(String name) {
-        return trash.stream().filter(f -> f.getName().equals(name)).findFirst().get();
+        return  trash.stream().filter(f -> f.getName().equals(name)).findFirst().orElse(null);
     }
 
     @Override

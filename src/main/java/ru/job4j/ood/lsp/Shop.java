@@ -13,7 +13,7 @@ public class Shop extends AbstractStore {
 
     @Override
     public Food get(String name) {
-        return shop.stream().filter(f -> f.getName().equals(name)).findFirst().get();
+        return shop.stream().filter(f -> f.getName().equals(name)).findFirst().orElse(null);
     }
 
     @Override
