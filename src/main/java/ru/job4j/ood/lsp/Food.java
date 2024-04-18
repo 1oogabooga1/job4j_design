@@ -10,18 +10,16 @@ public class Food {
     double price;
     int discount;
 
+    public Food(String name) {
+        this.name = name;
+    }
+
     public Food(String name, LocalDateTime expiryDate, LocalDateTime createDate, double price, int discount) {
         this.name = name;
         this.expiryDate = expiryDate;
         this.createDate = createDate;
         this.price = price;
         this.discount = discount;
-    }
-
-    public int getExpiredPercent() {
-        int expirationPeriod = expiryDate.getDayOfMonth() - createDate.getDayOfMonth();
-        int daysAfterCreation = LocalDateTime.now().getDayOfMonth() - createDate.getDayOfMonth();
-        return daysAfterCreation / expirationPeriod * 100;
     }
 
     public String getName() {
