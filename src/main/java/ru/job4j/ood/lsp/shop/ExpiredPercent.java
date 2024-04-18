@@ -6,10 +6,14 @@ import java.time.Period;
 public class ExpiredPercent {
 
     public float getExpiredPercent(Food food) {
-        float first = Period.between(food.getCreateDate().toLocalDate(), food.getExpiryDate().toLocalDate()).getDays()
-                + Period.between(food.getCreateDate().toLocalDate(), food.getExpiryDate().toLocalDate()).getMonths() * 10;
-        float second =  Period.between(food.getCreateDate().toLocalDate(), LocalDateTime.now().toLocalDate()).getDays()
-                + Period.between(food.getCreateDate().toLocalDate(), LocalDateTime.now().toLocalDate()).getMonths() * 10;
+        Period betweenCreatedAndExpired = Period.between(food.getCreateDate().toLocalDate(), food.getExpiryDate().toLocalDate());
+        Period betweenCreatedAndNow = Period.between(food.getCreateDate().toLocalDate(), LocalDateTime.now().toLocalDate());
+        float first = betweenCreatedAndExpired.getDays()
+                + betweenCreatedAndExpired.getMonths() * 10
+                + betweenCreatedAndExpired.getYears() * 365;
+        float second =  betweenCreatedAndNow.getDays()
+                + betweenCreatedAndNow.getMonths() * 10
+                + betweenCreatedAndNow.getYears() * 365;
         return second / first * 100;
     }
 }

@@ -6,11 +6,13 @@ import ru.job4j.ood.lsp.shop.Food;
 import ru.job4j.ood.lsp.shop.Store;
 import ru.job4j.ood.lsp.shop.WareHouse;
 
+import java.time.LocalDateTime;
+
 class WareHouseTest {
 
     @Test
     void whenPutThenGet() {
-        Food food = new Food("Milk");
+        Food food = new Food("Milk", LocalDateTime.of(2024, 4, 25, 0, 0, 0), LocalDateTime.of(2024, 4, 18, 0, 0, 0), 100, 0);
         Store wareHouse = new WareHouse();
         wareHouse.put(food);
         assertThat(wareHouse.get("Milk")).isEqualTo(food);
@@ -24,8 +26,10 @@ class WareHouseTest {
 
     @Test
     void testPutMultipleAndGetCorrectly() {
-        Food food1 = new Food("Apple");
-        Food food2 = new Food("Orange");
+        Food food1 = new Food("Apple", LocalDateTime.of(2024, 4, 25, 0, 0, 0),
+                LocalDateTime.of(2024, 4, 18, 0, 0, 0), 100, 0);
+        Food food2 = new Food("Orange", LocalDateTime.of(2024, 4, 30, 0, 0, 0),
+                LocalDateTime.of(2024, 4, 18, 0, 0, 0), 100, 0);
         Store wareHouse = new WareHouse();
         wareHouse.put(food1);
         wareHouse.put(food2);
