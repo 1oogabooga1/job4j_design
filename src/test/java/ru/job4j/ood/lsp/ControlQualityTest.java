@@ -3,6 +3,7 @@ package ru.job4j.ood.lsp;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
+import ru.job4j.ood.lsp.shop.*;
 
 import java.time.LocalDateTime;
 import java.util.List;

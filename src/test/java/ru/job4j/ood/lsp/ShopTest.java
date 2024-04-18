@@ -2,6 +2,9 @@ package ru.job4j.ood.lsp;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
+import ru.job4j.ood.lsp.shop.Food;
+import ru.job4j.ood.lsp.shop.Shop;
+import ru.job4j.ood.lsp.shop.Store;
 
 class ShopTest {
     @Test
