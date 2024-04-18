@@ -8,10 +8,8 @@ public class ParkingCars implements Parking {
     private List<Car> lightCars = new ArrayList<>(size);
     private List<Car> heavyCars = new ArrayList<>(size);
 
-    public ParkingCars(int size, List<Car> lightCars, List<Car> heavyCars) {
+    public ParkingCars(int size) {
         this.size = size;
-        this.lightCars = lightCars;
-        this.heavyCars = heavyCars;
     }
 
     @Override
