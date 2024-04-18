@@ -6,3 +6,4 @@ public interface Parking {
 
     Car get(Car car);
 }
+

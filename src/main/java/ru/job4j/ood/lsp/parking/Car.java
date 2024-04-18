@@ -24,5 +24,4 @@ public class Car {
     public void setCarSize(int carSize) {
         this.carSize = carSize;
     }
-
 }

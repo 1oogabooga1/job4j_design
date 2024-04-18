@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingCars implements Parking {
-    private int size;
-    private List<Car> lightCars = new ArrayList<>(size);
-    private List<Car> heavyCars = new ArrayList<>(size);
+    private int sizeForLightCars;
 
-    public ParkingCars(int size) {
-        this.size = size;
+    private int sizeForHeavyCars;
+    private List<Car> lightCars = new ArrayList<>(sizeForLightCars);
+    private List<Car> heavyCars = new ArrayList<>(sizeForHeavyCars);
+
+    public ParkingCars(int sizeForHeavyCars, int sizeForLightCars) {
+        this.sizeForHeavyCars = sizeForHeavyCars;
+        this.sizeForLightCars = sizeForLightCars;
     }
 
     @Override
