@@ -8,7 +8,15 @@ public class Shop extends AbstractStore {
 
     @Override
     public void put(Food food) {
-        shop.add(food);
+        float expiredPercent = ep.getExpiredPercent(food);
+        if (expiredPercent > 25 && expiredPercent < 75) {
+            shop.add(food);
+        }
+        if (expiredPercent > 75 && expiredPercent < 100) {
+            food.setPrice(food.getPrice() - (food.getPrice() * 0.2));
+            food.setDiscount(20);
+            shop.add(food);
+        }
     }
 
     @Override

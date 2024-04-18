@@ -8,7 +8,10 @@ public class Trash extends AbstractStore {
 
     @Override
     public void put(Food food) {
-        trash.add(food);
+        float expiredPercent = ep.getExpiredPercent(food);
+        if (expiredPercent >= 100) {
+            trash.add(food);
+        }
     }
 
     @Override

@@ -8,7 +8,10 @@ public class WareHouse extends AbstractStore {
 
     @Override
     public void put(Food food) {
+        float expiredPercent = ep.getExpiredPercent(food);
+        if (expiredPercent < 25) {
             wareHouse.add(food);
+        }
     }
 
     @Override
