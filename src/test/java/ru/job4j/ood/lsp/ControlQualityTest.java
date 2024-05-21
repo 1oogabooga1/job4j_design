@@ -39,7 +39,7 @@ class ControlQualityTest {
 
     @Test
     void whenMoreThan75ThenPutInShopWithDiscount() {
-        Food milk = new Food("Milk", LocalDateTime.of(2024, 4, 20, 0, 0, 0), LocalDateTime.of(2024, 3, 15, 0, 0, 0), 100, 0);
+        Food milk = new Food("Milk", LocalDateTime.of(2024, 5, 23, 0, 0, 0), LocalDateTime.of(2024, 3, 15, 0, 0, 0), 100, 0);
         Store wareHouse = new WareHouse();
         Store trash = new Trash();
         Store shop = new Shop();
