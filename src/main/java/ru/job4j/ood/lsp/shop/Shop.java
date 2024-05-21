@@ -28,4 +28,9 @@ public class Shop extends AbstractStore {
     public String getName() {
         return "Shop";
     }
+
+    @Override
+    public List<Food> getAll() {
+        return shop;
+    }
 }

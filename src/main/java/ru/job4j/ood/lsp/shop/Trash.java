@@ -23,4 +23,9 @@ public class Trash extends AbstractStore {
     public String getName() {
         return "Trash";
     }
+
+    @Override
+    public List<Food> getAll() {
+        return trash;
+    }
 }

@@ -19,4 +19,10 @@ public class ControlQuality {
             }
         }
     }
+
+    public void resort() {
+        for (Store store : stores) {
+            distribution(store.getAll());
+        }
+    }
 }
