@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 class ShopTest {
     @Test
     void whenPutThenGet() {
-        Food food = new Food("Milk", LocalDateTime.of(2024, 4, 20, 0, 0, 0),
+        Food food = new Food("Milk", LocalDateTime.of(2024, 7, 28, 0, 0, 0),
                 LocalDateTime.of(2024, 4, 17, 0, 0, 0), 100, 0);
         Store shop = new Shop();
         shop.put(food);
@@ -20,9 +20,9 @@ class ShopTest {
 
     @Test
     void testMultiplePutAndGet() {
-        Food food1 = new Food("Milk", LocalDateTime.of(2024, 4, 20, 0, 0, 0),
+        Food food1 = new Food("Milk", LocalDateTime.of(2024, 7, 28, 0, 0, 0),
                 LocalDateTime.of(2024, 3, 15, 0, 0, 0), 100, 0);
-        Food food2 = new Food("Bread", LocalDateTime.of(2024, 4, 23, 0, 0, 0),
+        Food food2 = new Food("Bread", LocalDateTime.of(2024, 7, 28, 0, 0, 0),
                 LocalDateTime.of(2024, 3, 15, 0, 0, 0), 100, 0);
         Store shop = new Shop();
         shop.put(food1);

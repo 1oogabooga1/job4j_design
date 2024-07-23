@@ -11,7 +11,7 @@ import java.util.List;
 class ControlQualityTest {
     @Test
     void whenLessThan25PercentThenPutInWareHouse() {
-        Food milk = new Food("Milk", LocalDateTime.of(2024, 4, 25, 0, 0, 0), LocalDateTime.now(), 100, 0);
+        Food milk = new Food("Milk", LocalDateTime.of(2024, 7, 20, 0, 0, 0), LocalDateTime.now(), 100, 0);
         Store wareHouse = new WareHouse();
         Store trash = new Trash();
         Store shop = new Shop();
@@ -25,7 +25,7 @@ class ControlQualityTest {
 
     @Test
     void whenMoreThan25PercentAndLessThan75ThenPutInShop() {
-        Food milk = new Food("Milk", LocalDateTime.of(2024, 5, 25, 0, 0, 0), LocalDateTime.of(2024, 3, 15, 0, 0, 0), 100, 0);
+        Food milk = new Food("Milk", LocalDateTime.of(2024, 7, 25, 0, 0, 0), LocalDateTime.of(2024, 3, 15, 0, 0, 0), 100, 0);
         Store wareHouse = new WareHouse();
         Store trash = new Trash();
         Store shop = new Shop();
@@ -39,7 +39,7 @@ class ControlQualityTest {
 
     @Test
     void whenMoreThan75ThenPutInShopWithDiscount() {
-        Food milk = new Food("Milk", LocalDateTime.of(2024, 5, 23, 0, 0, 0), LocalDateTime.of(2024, 3, 15, 0, 0, 0), 100, 0);
+        Food milk = new Food("Milk", LocalDateTime.of(2024, 7, 25, 0, 0, 0), LocalDateTime.of(2024, 6, 15, 0, 0, 0), 100, 0);
         Store wareHouse = new WareHouse();
         Store trash = new Trash();
         Store shop = new Shop();
