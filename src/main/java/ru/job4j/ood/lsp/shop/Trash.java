@@ -1,5 +1,6 @@
 package ru.job4j.ood.lsp.shop;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +9,7 @@ public class Trash extends AbstractStore {
 
     @Override
     public void put(Food food) {
-        float expiredPercent = ep.getExpiredPercent(food);
+        float expiredPercent = ep.getExpiredPercent(food, LocalDate.of(2024, 7, 25));
         if (expiredPercent >= 100) {
             trash.add(food);
         }
