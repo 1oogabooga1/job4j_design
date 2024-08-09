@@ -61,5 +61,4 @@ class CSVReaderTest {
         CSVReader.handle(argsName);
         assertThat(Files.readString(target.toPath())).isEqualTo(expected);
     }
-
 }
