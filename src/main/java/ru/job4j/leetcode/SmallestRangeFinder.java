@@ -1,4 +1,4 @@
-package ru.job4j.leetCode;
+package ru.job4j.leetcode;
 
 
 import java.util.*;
