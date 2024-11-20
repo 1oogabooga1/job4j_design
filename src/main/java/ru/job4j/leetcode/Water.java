@@ -28,7 +28,7 @@ class Water {
     }
 
     public static void main(String[] args) {
-        Integer[] height = new Integer[] {1, 8, 6, 2, 5, 4, 8};
+        Integer[] height = new Integer[] {1, 8, 6, 2, 5, 6, 7, 1020};
         System.out.println(maxArea(height));
     }
 }
