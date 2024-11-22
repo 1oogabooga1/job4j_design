@@ -28,7 +28,10 @@ public class AlertRabbit {
     public static class Rabbit implements Job {
         @Override
         public void execute(JobExecutionContext context) {
-            System.out.println("Changes");
+            System.out.println("First commit");
+            System.out.println("Second commit");
+            System.out.println("Third commit");
+            System.out.println("Fourth commit");
         }
     }
 }
