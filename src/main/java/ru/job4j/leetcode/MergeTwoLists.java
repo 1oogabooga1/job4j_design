@@ -5,9 +5,6 @@ public class MergeTwoLists {
         ListNode result = new ListNode();
         ListNode dummy = new ListNode();
         ListNode iterator = dummy;
-        while (iterator.val != 0) {
-
-        }
         return result;
     }
 
@@ -20,7 +17,7 @@ public class MergeTwoLists {
 
         ListNode next;
 
-        public ListNode() {}
+        public ListNode() { }
 
         public ListNode(int val) {
             this.val = val;

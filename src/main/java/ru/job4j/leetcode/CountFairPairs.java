@@ -43,6 +43,6 @@ public class CountFairPairs {
     }
 
     public static void main(String[] args) {
-        System.out.println(countFairPairs(new int[] {1,7,9,2,5}, 11, 11));
+        System.out.println(countFairPairs(new int[] {1, 7, 9, 2, 5}, 11, 11));
     }
 }

@@ -16,6 +16,6 @@ public class SubArraysWithScore {
     }
 
     public static void main(String[] args) {
-        System.out.println(countSubarrays(new int[] {2,1,4,3,5}, 10));
+        System.out.println(countSubarrays(new int[] {2, 1, 4, 3, 5}, 10));
     }
 }

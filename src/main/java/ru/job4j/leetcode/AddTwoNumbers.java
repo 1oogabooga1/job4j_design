@@ -1,8 +1,6 @@
 package ru.job4j.leetcode;
 
 import java.math.BigInteger;
-import java.util.LinkedList;
-import java.util.List;
 
 public class AddTwoNumbers {
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
@@ -42,7 +40,7 @@ public class AddTwoNumbers {
         int val;
         ListNode next;
 
-        public ListNode() {}
+        public ListNode() { }
 
         public ListNode(int val) {
             this.val = val;

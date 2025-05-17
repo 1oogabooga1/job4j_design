@@ -24,6 +24,6 @@ public class MaxValueKTimes {
     }
 
     public static void main(String[] args) {
-        System.out.println(countSubarrays(new int[] {1,3,2,3,3}, 2));
+        System.out.println(countSubarrays(new int[] {1, 3, 2, 3, 3}, 2));
     }
 }

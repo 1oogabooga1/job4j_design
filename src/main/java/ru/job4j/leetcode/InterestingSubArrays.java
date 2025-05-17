@@ -9,9 +9,7 @@ public class InterestingSubArrays {
         HashMap<Integer, Long> count = new HashMap<>();
         count.put(0, 1L);
         int prefix = 0;
-        for (Integer num : nums) {
 
-        }
         return result;
     }
 

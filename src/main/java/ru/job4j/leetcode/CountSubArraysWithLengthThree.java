@@ -16,6 +16,6 @@ public class CountSubArraysWithLengthThree {
     }
 
     public static void main(String[] args) {
-        countSubarrays(new int[] {-1,-4,-1,4});
+        countSubarrays(new int[] {-1, -4, -1, 4});
     }
 }
