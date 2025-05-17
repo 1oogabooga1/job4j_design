@@ -27,4 +27,5 @@ public class IntervalMerger {
 
         return merges.toArray(new int[][]{});
     }
+
 }
