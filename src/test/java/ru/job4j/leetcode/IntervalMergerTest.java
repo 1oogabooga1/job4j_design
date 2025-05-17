@@ -50,4 +50,5 @@ public class IntervalMergerTest {
         int[][] result = intervalMerger.merge(intervals);
         assertThat(result).isDeepEqualTo(expected);
     }
+
 }
